@@ -8,8 +8,6 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
-import br.org.scadabr.rt.dataSource.asciiFile.ASCIIFilePointLocatorRT;
-
 import com.serotonin.json.JsonException;
 import com.serotonin.json.JsonObject;
 import com.serotonin.json.JsonReader;
@@ -23,9 +21,10 @@ import com.serotonin.util.SerializationHelper;
 import com.serotonin.web.dwr.DwrResponseI18n;
 import com.serotonin.web.i18n.LocalizableMessage;
 
+import br.org.scadabr.rt.dataSource.asciiFile.ASCIIFilePointLocatorRT;
+
 @JsonRemoteEntity
-public class ASCIIFilePointLocatorVO extends AbstractPointLocatorVO implements
-		JsonSerializable {
+public class ASCIIFilePointLocatorVO extends AbstractPointLocatorVO implements JsonSerializable {
 
 	@JsonRemoteProperty
 	private String valueRegex = "";
@@ -46,11 +45,9 @@ public class ASCIIFilePointLocatorVO extends AbstractPointLocatorVO implements
 			response.addContextualMessage("valueRegex", "validate.required");
 		if (customTimestamp) {
 			if (StringUtils.isEmpty(timestampFormat))
-				response.addContextualMessage("timestampFormat",
-						"validate.required");
+				response.addContextualMessage("timestampFormat", "validate.required");
 			if (StringUtils.isEmpty(timestampRegex))
-				response.addContextualMessage("timestampRegex",
-						"validate.required");
+				response.addContextualMessage("timestampRegex", "validate.required");
 		}
 	}
 
@@ -106,8 +103,7 @@ public class ASCIIFilePointLocatorVO extends AbstractPointLocatorVO implements
 
 	}
 
-	private void readObject(ObjectInputStream in) throws IOException,
-			ClassNotFoundException {
+	private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
 		int ver = in.readInt();
 		if (ver == 1) {
 			valueRegex = SerializationHelper.readSafeUTF(in);
@@ -120,8 +116,7 @@ public class ASCIIFilePointLocatorVO extends AbstractPointLocatorVO implements
 	}
 
 	@Override
-	public void jsonDeserialize(JsonReader arg0, JsonObject arg1)
-			throws JsonException {
+	public void jsonDeserialize(JsonReader arg0, JsonObject arg1) throws JsonException {
 
 	}
 

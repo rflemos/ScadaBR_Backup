@@ -2024,7 +2024,7 @@ public class DataSourceEditDwr extends DataSourceListDwr {
 
 	@MethodFilter
 	public DwrResponseI18n saveASCIIFilePointLocator(int id, String xid, String name, ASCIIFilePointLocatorVO locator) {
-		locator.setSettable(false);
+		// locator.setSettable(false);
 		return validatePoint(id, xid, name, locator, null);
 	}
 

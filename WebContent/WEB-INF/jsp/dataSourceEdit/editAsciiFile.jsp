@@ -32,6 +32,7 @@
   }
   
   function editPointCBImpl(locator) {
+	  $set("settable", locator.settable);
 	  $set("valueRegex", locator.valueRegex);
 	  $set("dataTypeId", locator.dataType);
 	  $set("customTimestamp",locator.customTimestamp);
@@ -44,6 +45,7 @@
   }
   
   function savePointImpl(locator) {
+	  locator.settable = $get("settable");
 	  locator.dataType = $get("dataTypeId");
       locator.valueRegex = $get("valueRegex");
 	  locator.customTimestamp = $get("customTimestamp");
@@ -146,6 +148,10 @@
     </td>
   </tr>
   <tr>
+    <td class="formLabelRequired"><fmt:message key="dsEdit.settable"/></td>
+    <td class="formField"><input type="checkbox" id="settable"/></td>
+  </tr>
+  <tr>
     <td class="formLabelRequired"><fmt:message key="dsEdit.asciiFile.valueRegex"/></td>
     <td class="formField">
     	<input id="valueRegex" type="text" value=""/>
@@ -155,6 +161,7 @@
       	</select>
     </td>
   </tr>
+  
   <tr>
     <td class="formLabelRequired"><fmt:message key="dsEdit.asciiFile.timestampCheck"/></td>
     <td class="formField"><input id="customTimestamp" type="checkbox" onchange="checkTimestampChanged();"/></td>

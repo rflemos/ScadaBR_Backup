@@ -8,8 +8,6 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
-import br.org.scadabr.rt.dataSource.asciiFile.ASCIIFileDataSource;
-
 import com.serotonin.json.JsonException;
 import com.serotonin.json.JsonObject;
 import com.serotonin.json.JsonReader;
@@ -25,29 +23,27 @@ import com.serotonin.util.SerializationHelper;
 import com.serotonin.web.dwr.DwrResponseI18n;
 import com.serotonin.web.i18n.LocalizableMessage;
 
+import br.org.scadabr.rt.dataSource.asciiFile.ASCIIFileDataSource;
+
 @JsonRemoteEntity
-public class ASCIIFileDataSourceVO<T extends ASCIIFileDataSourceVO<?>> extends
-		DataSourceVO<T> {
+public class ASCIIFileDataSourceVO<T extends ASCIIFileDataSourceVO<?>> extends DataSourceVO<T> {
 
 	public static final Type TYPE = Type.ASCII_FILE;
 
 	@Override
 	protected void addEventTypes(List<EventTypeVO> eventTypes) {
-		eventTypes.add(createEventType(
-				ASCIIFileDataSource.POINT_READ_EXCEPTION_EVENT,
+		eventTypes.add(createEventType(ASCIIFileDataSource.POINT_READ_EXCEPTION_EVENT,
 				new LocalizableMessage("event.ds.pointRead")));
-		eventTypes.add(createEventType(
-				ASCIIFileDataSource.DATA_SOURCE_EXCEPTION_EVENT,
+		eventTypes.add(createEventType(ASCIIFileDataSource.DATA_SOURCE_EXCEPTION_EVENT,
 				new LocalizableMessage("event.ds.dataSource")));
 
 	}
 
 	private static final ExportCodes EVENT_CODES = new ExportCodes();
+
 	static {
-		EVENT_CODES.addElement(ASCIIFileDataSource.DATA_SOURCE_EXCEPTION_EVENT,
-				"DATA_SOURCE_EXCEPTION");
-		EVENT_CODES.addElement(ASCIIFileDataSource.POINT_READ_EXCEPTION_EVENT,
-				"POINT_READ_EXCEPTION");
+		EVENT_CODES.addElement(ASCIIFileDataSource.DATA_SOURCE_EXCEPTION_EVENT, "DATA_SOURCE_EXCEPTION");
+		EVENT_CODES.addElement(ASCIIFileDataSource.POINT_READ_EXCEPTION_EVENT, "POINT_READ_EXCEPTION");
 	}
 
 	@Override
@@ -147,8 +143,7 @@ public class ASCIIFileDataSourceVO<T extends ASCIIFileDataSourceVO<?>> extends
 
 	}
 
-	private void readObject(ObjectInputStream in) throws IOException,
-			ClassNotFoundException {
+	private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
 		int ver = in.readInt();
 		if (ver == 1) {
 			filePath = SerializationHelper.readSafeUTF(in);
@@ -159,8 +154,7 @@ public class ASCIIFileDataSourceVO<T extends ASCIIFileDataSourceVO<?>> extends
 	}
 
 	@Override
-	public void jsonDeserialize(JsonReader reader, JsonObject json)
-			throws JsonException {
+	public void jsonDeserialize(JsonReader reader, JsonObject json) throws JsonException {
 		super.jsonDeserialize(reader, json);
 		Integer value = deserializeUpdatePeriodType(json);
 		if (value != null)

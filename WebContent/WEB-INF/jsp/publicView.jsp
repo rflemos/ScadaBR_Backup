@@ -21,7 +21,7 @@
 
 <html>
 <head>
-  <title><fmt:message key="header.title"/></title>
+  <title>FERROLENE</title>
   
   <!-- Style -->
   <link rel="icon" href="images/favicon.ico"/>
@@ -40,6 +40,8 @@
   <script type="text/javascript" src="resources/view.js"></script>
   <script type="text/javascript" src="resources/wz_jsgraphics.js"></script>
   <script type="text/javascript" src="resources/header.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
 </head>
 
 <body style="background-color:transparent">

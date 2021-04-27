@@ -33,7 +33,7 @@
   <!-- Meta -->
   <meta http-equiv="content-type" content="application/xhtml+xml;charset=utf-8"/>
   <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="Copyright" content="ScadaBR &copy;©2009-2011 Fundação Certi, MCA Sistemas, Unis Sistemas, Conetec, Todos os direitos reservados."/>
+  <meta name="Copyright" content=""/>
   <meta name="DESCRIPTION" content="ScadaBR Software"/>
   <meta name="KEYWORDS" content="ScadaBR Software"/>
   
@@ -100,7 +100,7 @@
       </td>
     </c:if>
     <c:if test="${!empty instanceDescription}">
-      <td align="right" valign="bottom" class="projectTitle" style="padding:5px; white-space: nowrap;">${instanceDescription}</td>
+      <td align="right" valign="bottom" class="projectTitle" style="padding:5px; white-space: nowrap;"></td>
     </c:if>
   </tr>
 </table>
@@ -175,7 +175,7 @@
 <table width="100%" cellspacing="0" cellpadding="0" border="0">
   <tr><td colspan="2">&nbsp;</td></tr>
   <tr>
-    <td colspan="2" class="footer" align="center">&copy;2009-2011 Funda&ccedil;&atilde;o Certi, MCA Sistemas, Unis Sistemas, Conetec. <fmt:message key="footer.rightsReserved"/></td>
+   
   </tr>
 </table>
 <c:if test="${!empty onload}">
