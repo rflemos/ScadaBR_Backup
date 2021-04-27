@@ -1,0 +1,10 @@
+/estoque.exe
+/.settings/
+/.svn/
+/build/
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
