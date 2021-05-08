@@ -36,6 +36,8 @@ public class ASCIIFileDataSourceVO<T extends ASCIIFileDataSourceVO<?>> extends D
 				new LocalizableMessage("event.ds.pointRead")));
 		eventTypes.add(createEventType(ASCIIFileDataSource.DATA_SOURCE_EXCEPTION_EVENT,
 				new LocalizableMessage("event.ds.dataSource")));
+		eventTypes.add(createEventType(ASCIIFileDataSource.POINT_WRITE_EXCEPTION_EVENT,
+				new LocalizableMessage("event.ds.pointWrite")));
 
 	}
 
@@ -44,6 +46,7 @@ public class ASCIIFileDataSourceVO<T extends ASCIIFileDataSourceVO<?>> extends D
 	static {
 		EVENT_CODES.addElement(ASCIIFileDataSource.DATA_SOURCE_EXCEPTION_EVENT, "DATA_SOURCE_EXCEPTION");
 		EVENT_CODES.addElement(ASCIIFileDataSource.POINT_READ_EXCEPTION_EVENT, "POINT_READ_EXCEPTION");
+		EVENT_CODES.addElement(ASCIIFileDataSource.POINT_WRITE_EXCEPTION_EVENT, "POINT_WRITE_EXCEPTION");
 	}
 
 	@Override
@@ -84,19 +87,19 @@ public class ASCIIFileDataSourceVO<T extends ASCIIFileDataSourceVO<?>> extends D
 		return TYPE;
 	}
 
-	private int updatePeriodType = Common.TimePeriods.SECONDS;
+	private int updatePeriodType = Common.TimePeriods.SECONDS;// setado como segundos
 	@JsonRemoteProperty
-	private int updatePeriods = 1;
+	private int updatePeriods = 1;//tempo de atualização
 	@JsonRemoteProperty
-	private String filePath = "";
+	private String filePath = "";//ip do clp
 	@JsonRemoteProperty
-	private boolean quantize;
+	private boolean quantize;//
 
 	@Override
 	public void validate(DwrResponseI18n response) {
 		super.validate(response);
-		if (StringUtils.isEmpty(filePath))
-			response.addContextualMessage("filePath", "validate.required");
+		if (StringUtils.isEmpty(filePath))//ip clp
+			response.addContextualMessage("filePath", "validate.required");//pega o valor que esta no campo e exige que é obrigatorio
 	}
 
 	public int getUpdatePeriodType() {

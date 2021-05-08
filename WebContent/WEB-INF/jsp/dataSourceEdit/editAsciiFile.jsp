@@ -155,10 +155,10 @@
     <td class="formLabelRequired"><fmt:message key="dsEdit.asciiFile.valueRegex"/></td>
     <td class="formField">
     	<input id="valueRegex" type="text" value=""/>
-    	<select id="valueSuggestions" onchange="valueSuggestChanged();">
+    	<%-- <select id="valueSuggestions" onchange="valueSuggestChanged();">
     		<option value=""> &nbsp; </option>
         	<option value="((\b[0-9]+)?\.)?[0-9]+\b"> <fmt:message key="dsEdit.asciiFile.regex.number"/>  </option>
-      	</select>
+      	</select> --%>
     </td>
   </tr>
   

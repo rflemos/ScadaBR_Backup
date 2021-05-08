@@ -364,6 +364,8 @@ public class SqlDataSourceRT extends PollingDataSource {
 
 			// Test the connection.
 			conn.getMetaData();
+			
+			
 
 			// Deactivate any existing event.
 			returnToNormal(DATA_SOURCE_EXCEPTION_EVENT,

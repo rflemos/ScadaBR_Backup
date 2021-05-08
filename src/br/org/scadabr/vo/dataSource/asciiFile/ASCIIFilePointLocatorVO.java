@@ -27,19 +27,19 @@ import br.org.scadabr.rt.dataSource.asciiFile.ASCIIFilePointLocatorRT;
 public class ASCIIFilePointLocatorVO extends AbstractPointLocatorVO implements JsonSerializable {
 
 	@JsonRemoteProperty
-	private String valueRegex = "";
+	private String valueRegex = "";//nome da variavel do clp
 	@JsonRemoteProperty
-	private boolean customTimestamp;
+	private boolean customTimestamp;//vazio
 	@JsonRemoteProperty
 	private String timestampFormat = "";
 	@JsonRemoteProperty
-	private String timestampRegex = "";
+	private String timestampRegex = "";//vazio
 	@JsonRemoteProperty
 	private int dataType = DataTypes.BINARY;
 	@JsonRemoteProperty
 	private boolean settable;
 
-	@Override
+	@Override//realiza as validações ao adicionar um ponto 
 	public void validate(DwrResponseI18n response) {
 		if (StringUtils.isEmpty(valueRegex))
 			response.addContextualMessage("valueRegex", "validate.required");
